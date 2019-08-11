@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fiap.Banco.Conta
+namespace A1.Model
 {
     enum TipoConta
     {
