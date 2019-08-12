@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using A01.xception;
 using A1.Model;
 
 namespace Fiap.Banco.Model
@@ -29,7 +30,7 @@ namespace Fiap.Banco.Model
         {
             if (Saldo < valor)
             {
-                throw new Exception("Valor Insuficinte");
+                throw new SaldoInvalido("Valor Insuficinte");
 
             }
             else

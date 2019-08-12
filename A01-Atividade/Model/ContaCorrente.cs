@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using A01.xception;
 using A1.Model;
 
 namespace Fiap.Banco.Model
@@ -20,7 +21,7 @@ namespace Fiap.Banco.Model
         {
             if (Tipo == TipoConta.Comum && Saldo<valor)
             {
-                throw new Exception("Saldo insuficiente");
+                throw new SaldoInvalido("Saldo insuficiente");
             }
             else
             {
