@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h1>Cadastrar</h1>
+
+<p>Nome do usuario: @ViewData["nome"]</p>
+<p>
+    CPF: @if(@ViewBag.cliente != null)
+    {
+    @ViewBag.cliente.Cpf
+    }
+</p>
+<p>@TempData["msg"]</p>
+<!--
+    <form>
+        Nome:<br>
+        <input type="text" name="firstname"><br>
+        E-mail:<br>
+        <input type="text" name="email"><br>
+        CPF:<br>
+        <input type="text" name="cpf"><br>
+        Maior Idade:<br>
+        <input type="radio" name="idade" value="maiorId"><br>
+        <input type="submit" value="Submit">
+    </form>
+    -->
+
+
+<form action="/Cliente/Cadastrar" method="post">
+    <div class="form-group">
+        <label for="id-nome">Nome</label>
+        <input type="text" name="nome" id="id-nome" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id-email">Email</label>
+        <input type="text" name="email" id="id-email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id-cpf">CPF</label>
+        <input type="text" name="cpf" id="id-cpf" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id-maior">Maior de Idade</label>
+        <input type="checkbox" name="maior" id="id-maior"  class="form-control" />
+    </div>
+    <input type="submit" class="btn btn-primary" value="Cadastrar">
+</form>
