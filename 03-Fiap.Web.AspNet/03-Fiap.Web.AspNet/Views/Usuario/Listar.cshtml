@@ -1,0 +1,22 @@
+﻿@model  IList<Cliente>
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h2>Listar</h2>
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>DataNascimento</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Nome</td>
+    <td>@item.Email</td>
+    <td>@item.DataNascimento</td>
+</tr>
+
+   }
+</table>
