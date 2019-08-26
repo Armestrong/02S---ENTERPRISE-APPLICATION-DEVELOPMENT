@@ -1,0 +1,32 @@
+﻿@model IList<Zoo>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+@if (TempData["msg"] != null)
+{
+<div class="alert alert-success">@TempData["msg"]</div>
+}
+<mensagem texto="@TempData["msg"]"></mensagem>
+
+<table class="table">
+    <tr>
+        <th>NOME</th>
+        <th>JAULAS</th>
+        <th>ADMINISTRADORA</th>
+        <th>DATA ABERTURA </th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+<tr>
+    <td>@item.Nome</td>
+    <td>@item.Jaulas</td>
+    <td>@item.EntidadeAdministradora</td>
+    <td>@item.DataAbertura.ToShortDateString()</td>
+</tr>
+    }
+</table>

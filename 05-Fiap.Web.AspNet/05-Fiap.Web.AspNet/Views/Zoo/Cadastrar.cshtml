@@ -1,0 +1,36 @@
+﻿@model Zoo
+
+@{
+   
+} 
+
+<h1>Zoo</h1>
+
+
+<form asp-action="Cadastrar" asp-controller="Zoo">
+    <div class="form-group">
+        <label asp-for="Jaulas"></label>
+        <input asp-for="Jaulas" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataAbertura" ></label>
+        <input asp-for="DataAbertura" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EntidadeAdministradora"></label> 
+        <select asp-for="EntidadeAdministradora" class="form-control" 
+                asp-items="@Html.GetEnumSelectList<Tipo>()">
+        <option>Selecione</option>
+        </select>
+    </div>
+
+    <input type="submit" name="cadastrar" value="Cadastrar" />
+
+</form>
