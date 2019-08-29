@@ -12,9 +12,13 @@ namespace _05_Fiap.Web.AspNet.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.TagName = "div";
-            output.Attributes.SetAttribute("class", "alert alert-success");
-            output.Content.SetContent(Texto);
+            if (!string.IsNullOrEmpty(Texto))
+            {
+                output.TagName = "div";
+                output.Attributes.SetAttribute("class", "alert alert-success");
+                output.Content.SetContent(Texto);
+            }
+            
         }
     }
 }

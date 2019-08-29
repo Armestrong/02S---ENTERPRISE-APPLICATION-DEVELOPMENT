@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="DataAbertura" ></label>
+        <label asp-for="DataAbertura"></label>
         <input asp-for="DataAbertura" class="form-control" />
     </div>
 
@@ -24,13 +24,11 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="EntidadeAdministradora"></label> 
-        <select asp-for="EntidadeAdministradora" class="form-control" 
+        <label asp-for="EntidadeAdministradora"></label>
+        <select asp-for="EntidadeAdministradora" class="form-control"
                 asp-items="@Html.GetEnumSelectList<Tipo>()">
-        <option>Selecione</option>
+            <option>Selecione</option>
         </select>
     </div>
-
-    <input type="submit" name="cadastrar" value="Cadastrar" />
-
+    <botao></botao>
 </form>
