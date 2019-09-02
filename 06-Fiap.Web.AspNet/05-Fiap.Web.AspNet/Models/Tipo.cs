@@ -7,6 +7,6 @@ namespace _05_Fiap.Web.AspNet.Models
 {
     public enum Tipo
     {
-        Particular, Estatal
+        Particular,Publico
     }
 }

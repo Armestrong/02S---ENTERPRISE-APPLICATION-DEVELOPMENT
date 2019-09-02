@@ -3,44 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _05_Fiap.Web.AspNet.Models;
-using _05_Fiap.Web.AspNet.Persistences;
+using _05_Fiap.Web.AspNet.Persistence;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace _05_Fiap.Web.AspNet.Controllers
 {
     public class ZooController : Controller
     {
-        //o cara que acessa o banco
+       // private static IList<Zoo> _lista = new List<Zoo>();
+
         private AllZooContext _context;
 
-        public ZooController(AllZooContext context)
+       public ZooController(AllZooContext context)
         {
             _context = context;
-        }
-
-        [HttpPost]
-        public IActionResult Atualizar(Zoo zoo)
-        {
-            _context.Attach(zoo).State = EntityState.Modified;
-            _context.SaveChanges();
-            TempData["msg"] = "Atualizado";
-            return RedirectToAction("Listar");
-        }
-
-        [HttpGet]
-        public IActionResult Atualizar(int id)
-        {
-            //Pesquisar o zoo no banco 
-            var zoo = _context.Zoos.Find(id);
-            //Retornar a view com o zoo
-            return View(zoo);
         }
 
         [HttpGet]
         public IActionResult Listar()
         {
+
             return View(_context.Zoos.ToList());
+        }
+
+
+        // CADASTRAR
+        [HttpGet]
+        public IActionResult Cadastrar()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -48,14 +39,39 @@ namespace _05_Fiap.Web.AspNet.Controllers
         {
             _context.Zoos.Add(zoo);
             _context.SaveChanges();
-            TempData["msg"] = "Cadastrado!";
+            TempData["msg"] = "Cadastrado com sucesso";
             return RedirectToAction("Listar");
         }
 
+
+        //ATUALIZAR
         [HttpGet]
-        public IActionResult Cadastrar()
+        public IActionResult Atualizar(int id)
         {
-            return View();
+           var zoo = _context.Zoos.Find(id);
+     
+            return View(zoo);
+        }
+
+        [HttpPost]
+        public IActionResult Atualizar(Zoo zoo)
+        {
+            _context.Zoos.Update(zoo);
+            _context.SaveChanges();
+            TempData["msg"] = "Atualizado !";
+            return RedirectToAction("Listar");
+        }
+
+        // REMOVER
+        [HttpGet]
+        public IActionResult Remover (int id)
+        {
+            var zoo = _context.Zoos.Find(id);
+            _context.Zoos.Remove(zoo);
+            _context.SaveChanges();
+            TempData["msg"] = "Removido !";
+
+            return RedirectToAction("Listar");
         }
     }
 }

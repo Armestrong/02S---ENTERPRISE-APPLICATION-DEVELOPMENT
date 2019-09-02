@@ -5,13 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _05_Fiap.Web.AspNet.Persistences
+namespace _05_Fiap.Web.AspNet.Persistence
 {
     public class AllZooContext : DbContext
     {
 
         public DbSet<Zoo> Zoos { get; set; }
-
         //construtor - ctor tab tab
         public AllZooContext(DbContextOptions op) : base (op)
         {

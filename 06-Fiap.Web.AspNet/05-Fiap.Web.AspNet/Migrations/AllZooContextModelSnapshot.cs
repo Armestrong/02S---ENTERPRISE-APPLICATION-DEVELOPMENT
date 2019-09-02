@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using _05_Fiap.Web.AspNet.Persistences;
+using _05_Fiap.Web.AspNet.Persistence;
 
-namespace _05Fiap.Web.AspNet.Migrations
+namespace _05_Fiap.Web.AspNet.Migrations
 {
     [DbContext(typeof(AllZooContext))]
     partial class AllZooContextModelSnapshot : ModelSnapshot
@@ -15,7 +15,7 @@ namespace _05Fiap.Web.AspNet.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -26,19 +26,21 @@ namespace _05Fiap.Web.AspNet.Migrations
                         .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DataAbertura");
+                    b.Property<DateTime>("DataAbertura")
+                        .HasColumnName("Data Abertura");
 
-                    b.Property<int>("EntidadeAdministradora");
+                    b.Property<int>("EntidadeAdministradora")
+                        .HasColumnName("Entidade administradora");
 
-                    b.Property<int>("Jaulas");
+                    b.Property<int>("Jaulas")
+                        .HasColumnName("Jaula");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                        .HasColumnName("Nome");
 
                     b.HasKey("ZooId");
 
-                    b.ToTable("TblZoo");
+                    b.ToTable("TB_ZOO");
                 });
 #pragma warning restore 612, 618
         }

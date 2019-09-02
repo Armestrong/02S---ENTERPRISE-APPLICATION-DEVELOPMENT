@@ -1,21 +1,23 @@
-﻿@model  IList<Zoo>
+﻿@model IList<Zoo>
 
 @{
     ViewData["Title"] = "Listar";
 }
 
-<h2>Listar</h2>
+<h1>Listar</h1>
 
-<mensagem texto="@TempData["msg"]"></mensagem>
+<div class="alert alert-success">@TempData["msg"]</div>
+
+@* <mensagem texto="@TempData["msg"]"></mensagem>*@
 
 <table class="table">
     <tr>
-        <th>Nome</th>
-        <th>Jaulas</th>
-        <th>Tipo</th>
-        <th>Data Abertura</th>
-        <th></th>
+        <th>NOME</th>
+        <th>JAULAS</th>
+        <th>ADMINISTRADORA</th>
+        <th>DATA ABERTURA </th>
     </tr>
+
     @foreach (var item in Model)
     {
         <tr>
@@ -24,10 +26,11 @@
             <td>@item.EntidadeAdministradora</td>
             <td>@item.DataAbertura.ToShortDateString()</td>
             <td>
-                <a asp-action="atualizar" 
-                   asp-route-id="@item.ZooId">Editar</a>
+                <a asp-action="Atualizar" asp-route-id="@item.ZooId">Editar</a>
+                <a asp-action="Remover" asp-route-id="@item.ZooId">Remover</a>
+
             </td>
+
         </tr>
     }
 </table>
-

@@ -1,31 +1,30 @@
-﻿@model  Zoo
+﻿@model Zoo
 
-@{
-    ViewData["Title"] = "Cadastrar";
-}
+<h1>Zoo</h1>
 
-<h2>Cadastro de Zoo</h2>
 
-<form asp-action="cadastrar" asp-controller="zoo">
-    <div class="form-group">
-        <label asp-for="Nome"></label>
-        <input asp-for="Nome" class="form-control"/>
-    </div>
-    <div class="form-group">
-        <label asp-for="DataAbertura"></label>
-        <input asp-for="DataAbertura" class="form-control" />
-    </div>
+<form asp-action="Cadastrar" asp-controller="Zoo">
     <div class="form-group">
         <label asp-for="Jaulas"></label>
         <input asp-for="Jaulas" class="form-control" />
     </div>
+
+    <div class="form-group">
+        <label asp-for="DataAbertura"></label>
+        <input asp-for="DataAbertura" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" />
+    </div>
+
     <div class="form-group">
         <label asp-for="EntidadeAdministradora"></label>
         <select asp-for="EntidadeAdministradora" class="form-control"
-                   asp-items="@Html.GetEnumSelectList<Tipo>()">
+                asp-items="@Html.GetEnumSelectList<Tipo>()">
             <option>Selecione</option>
         </select>
     </div>
-    <botao texto="Cadastrar"/>
-
+    <botao texto="Cadastrar" />
 </form>
