@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using _05_Fiap.Web.AspNet.Persistence;
+﻿using _05_Fiap.Web.AspNet.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,13 +23,11 @@ namespace _05_Fiap.Web.AspNet
         {
 
             //configurar a injeção de dependencia do banco de dados 
-           services.AddDbContext<AllZooContext>(options => options
-             .UseSqlServer(Configuration.GetConnectionString("conexao")));
+            services.AddDbContext<AllZooContext>(options => options
+              .UseSqlServer(Configuration.GetConnectionString("conexao")));
 
-            services.AddDbContext<AllAnimalContext>(options => options
-             .UseSqlServer(Configuration.GetConnectionString("conexao")));
 
-            services.Configure<CookiePolicyOptions>(options => 
+            services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
@@ -44,8 +38,8 @@ namespace _05_Fiap.Web.AspNet
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        
-        
+
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

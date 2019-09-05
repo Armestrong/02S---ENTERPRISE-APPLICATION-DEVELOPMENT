@@ -5,10 +5,8 @@
 }
 
 <h1>Listar</h1>
+<mensagem texto="@TempData["msg"]"></mensagem>
 
-<div class="alert alert-success">@TempData["msg"]</div>
-
-@* <mensagem texto="@TempData["msg"]"></mensagem>*@
 
 <table class="table">
     <tr>
@@ -26,8 +24,8 @@
             <td>@item.EntidadeAdministradora</td>
             <td>@item.DataAbertura.ToShortDateString()</td>
             <td>
-                <a asp-action="Atualizar" asp-route-id="@item.ZooId">Editar</a>
-                <a asp-action="Remover" onclick="churros.value =@item.ZooId" asp-route-id="@item.ZooId" data-toggle="modal" data-target="#modalExemplo" >Remover</a>
+                <a asp-action="Atualizar" asp-route-id="@item.ZooId" class="btn btn-primary">Editar</a>
+                <a asp-action="Remover" onclick="churros.value =@item.ZooId" asp-route-id="@item.ZooId" class="btn btn-danger" data-toggle="modal" data-target="#modalExemplo" >Remover</a>
 
             </td>
 

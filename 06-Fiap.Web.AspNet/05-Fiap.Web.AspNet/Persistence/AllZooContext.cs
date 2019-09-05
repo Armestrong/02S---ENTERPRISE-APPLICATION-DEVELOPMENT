@@ -11,6 +11,8 @@ namespace _05_Fiap.Web.AspNet.Persistence
     {
 
         public DbSet<Zoo> Zoos { get; set; }
+
+        public DbSet<Animal> Animals { get; set; }
         //construtor - ctor tab tab
         public AllZooContext(DbContextOptions op) : base (op)
         {

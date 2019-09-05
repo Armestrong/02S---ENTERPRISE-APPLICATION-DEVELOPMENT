@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _05_Fiap.Web.AspNet.Persistence;
 
 namespace _05_Fiap.Web.AspNet.Migrations
 {
     [DbContext(typeof(AllZooContext))]
-    partial class AllZooContextModelSnapshot : ModelSnapshot
+    [Migration("20190905163208_inicioanimal")]
+    partial class inicioanimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
