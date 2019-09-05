@@ -27,10 +27,37 @@
             <td>@item.DataAbertura.ToShortDateString()</td>
             <td>
                 <a asp-action="Atualizar" asp-route-id="@item.ZooId">Editar</a>
-                <a asp-action="Remover" asp-route-id="@item.ZooId">Remover</a>
+                <a asp-action="Remover" onclick="churros.value =@item.ZooId" asp-route-id="@item.ZooId" data-toggle="modal" data-target="#modalExemplo" >Remover</a>
 
             </td>
 
         </tr>
     }
 </table>
+
+<!-- Botão para acionar modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar exclusao </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir ?? 
+            </div>
+            <div class="modal-footer">
+                <form asp-action="remover">
+                    <input type="hidden" name="id" id="churros" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Nao</button>
+                    <button type="submit" class="btn btn-primary" >Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

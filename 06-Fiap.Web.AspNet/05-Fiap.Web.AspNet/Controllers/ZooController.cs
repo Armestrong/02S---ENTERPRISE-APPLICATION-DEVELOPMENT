@@ -63,7 +63,7 @@ namespace _05_Fiap.Web.AspNet.Controllers
         }
 
         // REMOVER
-        [HttpGet]
+        [HttpPost]
         public IActionResult Remover (int id)
         {
             var zoo = _context.Zoos.Find(id);

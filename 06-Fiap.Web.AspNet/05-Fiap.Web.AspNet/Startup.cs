@@ -27,7 +27,10 @@ namespace _05_Fiap.Web.AspNet
         {
 
             //configurar a injeção de dependencia do banco de dados 
-            services.AddDbContext<AllZooContext>(options => options
+           services.AddDbContext<AllZooContext>(options => options
+             .UseSqlServer(Configuration.GetConnectionString("conexao")));
+
+            services.AddDbContext<AllAnimalContext>(options => options
              .UseSqlServer(Configuration.GetConnectionString("conexao")));
 
             services.Configure<CookiePolicyOptions>(options => 
@@ -41,6 +44,8 @@ namespace _05_Fiap.Web.AspNet
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
+        
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
