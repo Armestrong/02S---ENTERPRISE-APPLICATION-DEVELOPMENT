@@ -10,9 +10,10 @@
     <select asp-for="Tipo" class="form-control" asp-items="@Html.GetEnumSelectList<TipoAnimal>()">
         <option>Selecione</option>
     </select>
-    <div class="form-group">
-        <label asp-for="Carnivoro"></label>
-        <input asp-for="Carnivoro" class="form-check" />
-    </div>
 </div>
+<div class="form-group">
+    <label asp-for="Carnivoro"></label>
+    <input asp-for="Carnivoro" class="form-check" />
+</div>
+
 

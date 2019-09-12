@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using _05_Fiap.Web.AspNet.Models;
 using _05_Fiap.Web.AspNet.Persistence;
+using DocumentFormat.OpenXml.EMMA;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _05_Fiap.Web.AspNet.Controllers
@@ -51,13 +52,13 @@ namespace _05_Fiap.Web.AspNet.Controllers
         public IActionResult Atualizar(int id)
         {
             var animal = _context.Animals.Find(id);
-            return View();
+            return View(animal);
         }
 
         [HttpPost]
-        public IActionResult Atualizar(Animal animal)
+        public IActionResult Atualizar(Animal animal, Model model)
         {
-            _context.Update(animal);
+            _context.Animals.Update(animal);
             _context.SaveChanges();
             TempData["msg"] = "Atualizado !";
             return RedirectToAction("Listar");
