@@ -9,14 +9,14 @@ using _07_Fiap.Web.AspNet.Persistence;
 namespace _07_Fiap.Web.AspNet.Migrations
 {
     [DbContext(typeof(AllCorridaContext))]
-    [Migration("20190909135910_Inicio")]
-    partial class Inicio
+    [Migration("20190912004113_inicio")]
+    partial class inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -37,7 +37,7 @@ namespace _07_Fiap.Web.AspNet.Migrations
 
                     b.HasKey("CorridaId");
 
-                    b.ToTable("TB_CORRIDAA");
+                    b.ToTable("TB_CORRIDA");
                 });
 #pragma warning restore 612, 618
         }

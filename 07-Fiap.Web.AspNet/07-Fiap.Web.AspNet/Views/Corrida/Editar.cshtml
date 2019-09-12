@@ -1,7 +1,9 @@
 ﻿@model Corrida
-@{
-    ViewData["Title"] = "Editar";
-}
 
 <h1>Editar</h1>
 
+<form asp-action="Editar">
+    <input asp-for="CorridaId"/>
+    <partial name="_formulario" />
+    <botao texto="Atualizar"></botao>
+</form>

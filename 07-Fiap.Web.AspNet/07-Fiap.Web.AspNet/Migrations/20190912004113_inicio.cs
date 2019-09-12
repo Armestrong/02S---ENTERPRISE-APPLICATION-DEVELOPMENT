@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _07_Fiap.Web.AspNet.Migrations
 {
-    public partial class Inicio : Migration
+    public partial class inicio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TB_CORRIDAA",
+                name: "TB_CORRIDA",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -20,14 +20,14 @@ namespace _07_Fiap.Web.AspNet.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TB_CORRIDAA", x => x.Id);
+                    table.PrimaryKey("PK_TB_CORRIDA", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TB_CORRIDAA");
+                name: "TB_CORRIDA");
         }
     }
 }

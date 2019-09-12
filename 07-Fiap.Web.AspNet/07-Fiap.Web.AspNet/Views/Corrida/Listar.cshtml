@@ -1,8 +1,32 @@
 ﻿@model IList<Corrida>
-@{
-    ViewData["Title"] = "Listar";
-}
+
+    <mensagem texto="@TempData["msg"]"></mensagem>
+
 
 <h1>Listar</h1>
+ 
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>CATEGORIA</th>
+        <th>DISTANCIA</th>
+        <th>PREMIACAO</th>
 
-<td
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.CorridaId</td>
+    <td>@item.Nome</td>
+    <td>@item.Categoria</td>
+    <td>@item.Distancia</td>
+    <td>@item.Premiacao</td>
+    <td>
+        <a asp-action="editar" asp-controller="corrida" asp-route-id="@item.CorridaId">Atualizar</a>
+        <a asp-action="remover" asp-controller="corrida" asp-route-id="@item.CorridaId">Remover</a>
+    </td>
+</tr>
+    }
+</table>

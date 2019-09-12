@@ -12,9 +12,13 @@ namespace _07_Fiap.Web.AspNet.Controllers
     public class CorridaController : Controller
     {
 
+        
+
+        // Istancia o AllCorridaContext
         private AllCorridaContext _context;
 
-        public CorridaController(AllCorridaContext context)
+
+        public  CorridaController(AllCorridaContext context)
         {
             _context = context;
         }
@@ -24,9 +28,6 @@ namespace _07_Fiap.Web.AspNet.Controllers
         {
             return View(_context.Corridas.ToList());
         }
-
-
-
 
         [HttpGet]
         public IActionResult Cadastrar()
@@ -39,36 +40,55 @@ namespace _07_Fiap.Web.AspNet.Controllers
         {
             _context.Corridas.Add(corrida);
             _context.SaveChanges();
-            TempData["msg"] = "Cadastrado !";
+            TempData["msg"] = "Cadastrado com sucesso !";
             return RedirectToAction("Listar");
         }
 
-
         [HttpGet]
-        public IActionResult Editar(int id)
+        public IActionResult editar(int id)
         {
             var corrida = _context.Corridas.Find(id);
-            return View();
+            return View(corrida);
         }
 
-        [HttpPost]
-        public IActionResult Editar(Corrida corrida, Model model)
+        public IActionResult editar(Corrida corrida, Model model)
         {
             _context.Corridas.Update(corrida);
             _context.SaveChanges();
-            TempData["msg"] = "Atualizado";
+            TempData["msg"] = "Atualizado com sucesso !";
             return RedirectToAction("Listar");
         }
 
-        [HttpPost]
-        public IActionResult Remover(int id)
+        [HttpGet]
+        public IActionResult remover(int id)
         {
-            var aux = _context.Corridas.Find(id);
-            _context.Corridas.Remove(aux);
+          var corri = _context.Corridas.Find(id);
+            _context.Corridas.Remove(corri);
             _context.SaveChanges();
-            TempData["msg"] = "Removido";
+            TempData["msg"] = "Removido com sucesso !";
             return RedirectToAction("Listar");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

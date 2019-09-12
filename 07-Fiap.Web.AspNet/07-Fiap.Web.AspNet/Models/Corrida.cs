@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace _07_Fiap.Web.AspNet.Models
 {
 
-    [Table("TB_CORRIDAA")]
+    [Table("TB_CORRIDA")]
     public  class Corrida
     {
         [Column("Id"),HiddenInput]
